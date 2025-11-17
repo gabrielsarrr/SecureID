@@ -5,7 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function RegisterPersonal({ route, navigation }) {
 
-    // RECIBIR los datos anteriores
     const { username, email, pass } = route.params;
 
     const [nombre, setNombre] = useState("");
@@ -29,7 +28,6 @@ export default function RegisterPersonal({ route, navigation }) {
             return;
         }
 
-        // ENVIAR TODOS LOS DATOS A LA SIGUIENTE PANTALLA
         navigation.navigate("RegisterBiometrics", {
             username,
             email,

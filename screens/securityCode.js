@@ -7,7 +7,6 @@ export default function SecurityCode({ navigation, route }) {
     const inputs = useRef([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    // Obtener el email de los parámetros de navegación
     const { email } = route.params || { email: 'tu correo electrónico' };
 
     const handleCodeChange = (text, index) => {
@@ -15,19 +14,16 @@ export default function SecurityCode({ navigation, route }) {
         newCode[index] = text;
         setCode(newCode);
 
-        // Auto-focus siguiente input
         if (text && index < 5) {
             inputs.current[index + 1].focus();
         }
 
-        // Auto-enviar cuando todos los campos están llenos
         if (text && index === 5 && newCode.every(digit => digit !== '')) {
             handleVerify();
         }
     };
 
     const handleKeyPress = (e, index) => {
-        // Manejar backspace
         if (e.nativeEvent.key === 'Backspace' && !code[index] && index > 0) {
             inputs.current[index - 1].focus();
         }
@@ -44,13 +40,10 @@ export default function SecurityCode({ navigation, route }) {
         setIsLoading(true);
 
         try {
-            // Simulación de verificación
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            // Aquí iría la lógica real de verificación
             console.log('Código verificado:', verificationCode);
 
-            // REDIRIGIR DIRECTAMENTE A NEWPASSWORD SIN ALERT
             navigation.navigate('NewPassword', {
                 email: email,
                 verificationCode: verificationCode
@@ -87,7 +80,6 @@ export default function SecurityCode({ navigation, route }) {
 
     return (
         <View style={styles.container}>
-            {/* Botón de regreso */}
             <TouchableOpacity
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}
@@ -99,13 +91,11 @@ export default function SecurityCode({ navigation, route }) {
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.content}
             >
-                {/* Título y descripción */}
                 <Text style={styles.title}>Código de seguridad</Text>
                 <Text style={styles.subtitle}>
                     Introduce el código de seguridad que enviamos a {email}
                 </Text>
 
-                {/* Inputs del código */}
                 <View style={styles.codeContainer}>
                     {code.map((digit, index) => (
                         <TouchableOpacity
@@ -143,7 +133,6 @@ export default function SecurityCode({ navigation, route }) {
                     </Text>
                 </TouchableOpacity>
 
-                {/* Reenviar código */}
                 <TouchableOpacity
                     style={styles.resendContainer}
                     onPress={handleResendCode}

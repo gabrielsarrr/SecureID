@@ -53,11 +53,9 @@ export default function RegisterBiometrics({ route, navigation }) {
         }
 
         try {
-            // 1. Crear usuario en Auth
             const userCred = await createUserWithEmailAndPassword(auth, email, pass);
             const uid = userCred.user.uid;
 
-            // 2. Guardar información en Firestore
             await setDoc(doc(db, "usuarios", uid), {
                 username,
                 email,

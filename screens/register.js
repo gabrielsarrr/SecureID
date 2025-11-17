@@ -33,7 +33,6 @@ export default function Register({ navigation }) {
             return;
         }
 
-        // Navegar y enviar datos
         navigation.navigate("RegisterPersonal", {
             username,
             email,

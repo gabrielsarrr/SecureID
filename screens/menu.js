@@ -143,34 +143,32 @@ export default function ProfileScreen({ navigation }) {
                     </View>
                     <Ionicons name="chevron-forward" size={20} color="#666" />
                 </TouchableOpacity>
-{/* Teléfono */}
-<TouchableOpacity
-    style={styles.menuItem}
-    onPress={() =>
-        navigation.navigate("PhoneNumber", {
-            currentPhone: userData?.telefono,
-            onPhoneUpdated: (newPhone) => setUserData({ ...userData, telefono: newPhone })
-        })
-    }
->
-    <View style={styles.menuItemLeft}>
-        <View style={[styles.iconContainer, { backgroundColor: '#E0F2F1' }]}>
-            <Ionicons name="call-outline" size={20} color="#00796B" />
-        </View>
-        <View style={styles.menuText}>
-            <Text style={styles.menuTitle}>Teléfono</Text>
-            {userData?.telefono ? (
-                <Text style={styles.menuSubtitle}>{userData.telefono}</Text>
-            ) : (
-                <Text style={styles.menuSubtitle}>Sin número</Text>
-            )}
-        </View>
-    </View>
-    <Ionicons name="chevron-forward" size={20} color="#666" />
-</TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.menuItem}
+                    onPress={() =>
+                        navigation.navigate("PhoneNumber", {
+                            currentPhone: userData?.telefono,
+                            onPhoneUpdated: (newPhone) => setUserData({ ...userData, telefono: newPhone })
+                        })
+                    }
+                >
+                    <View style={styles.menuItemLeft}>
+                        <View style={[styles.iconContainer, { backgroundColor: '#E0F2F1' }]}>
+                            <Ionicons name="call-outline" size={20} color="#00796B" />
+                        </View>
+                        <View style={styles.menuText}>
+                            <Text style={styles.menuTitle}>Teléfono</Text>
+                            {userData?.telefono ? (
+                                <Text style={styles.menuSubtitle}>{userData.telefono}</Text>
+                            ) : (
+                                <Text style={styles.menuSubtitle}>Sin número</Text>
+                            )}
+                        </View>
+                    </View>
+                    <Ionicons name="chevron-forward" size={20} color="#666" />
+                </TouchableOpacity>
 
 
-                {/* Logout */}
                 <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
                     <View style={styles.menuItemLeft}>
                         <View style={[styles.iconContainer, { backgroundColor: '#FFEBEE' }]}>

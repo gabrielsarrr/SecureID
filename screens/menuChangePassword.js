@@ -81,7 +81,6 @@ export default function MenuChangePassword({ navigation }) {
                 <Text style={styles.title}>Cambiar Contraseña</Text>
                 <Text style={styles.subtitle}>Ingresa tu contraseña actual y la nueva contraseña que deseas usar.</Text>
 
-                {/* Contraseña actual */}
                 <View style={styles.passwordContainer}>
                     <TextInput
                         style={styles.passwordInput}
@@ -102,7 +101,6 @@ export default function MenuChangePassword({ navigation }) {
                     </TouchableOpacity>
                 </View>
 
-                {/* Contraseña nueva */}
                 <View style={styles.passwordContainer}>
                     <TextInput
                         style={styles.passwordInput}
@@ -123,7 +121,6 @@ export default function MenuChangePassword({ navigation }) {
                     </TouchableOpacity>
                 </View>
 
-                {/* Confirmar contraseña */}
                 <View style={styles.passwordContainer}>
                     <TextInput
                         style={styles.passwordInput}

@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    StyleSheet,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    Alert
-} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function ForgotPassword({ navigation }) {
@@ -31,7 +21,7 @@ export default function ForgotPassword({ navigation }) {
         setIsLoading(true);
 
         try {
-            // Simulación de envío de código
+            // simula enviar el codigo (hacer en firebase)
             await new Promise(resolve => setTimeout(resolve, 1500));
 
             Alert.alert(
@@ -41,7 +31,6 @@ export default function ForgotPassword({ navigation }) {
                     {
                         text: 'OK',
                         onPress: () => {
-                            // REDIRIGIR A LA PANTALLA SECURITYCODE
                             navigation.navigate('SecurityCode', { email });
                         }
                     }

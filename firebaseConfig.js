@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 import { firebaseCredenciales } from "./credenciales";
 
-console.log("🔥 Credenciales cargadas:", firebaseCredenciales);
+console.log("Credenciales cargadas:", firebaseCredenciales);
 
 const app = initializeApp(firebaseCredenciales);
 

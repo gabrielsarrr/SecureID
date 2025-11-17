@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function Notifications({ navigation }) {
 
-    // Notificaciones simuladas
+    // son simuladas, hay que hacer un useradmin y que mande las notis a todos
     const notifications = [
         { id: 1, title: "Actualización disponible", message: "Se ha lanzado la nueva versión de la app." },
         { id: 2, title: "Recordatorio", message: "No olvides completar tu perfil." },

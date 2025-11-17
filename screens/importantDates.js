@@ -16,7 +16,6 @@ export default function ImportantDates({ navigation }) {
     const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
 
-    // Traer fechas desde Firebase
     const fetchDates = async () => {
         if (!auth.currentUser) return;
         const q = query(
@@ -25,7 +24,6 @@ export default function ImportantDates({ navigation }) {
         );
         const snapshot = await getDocs(q);
 
-        // Filtrar duplicados
         const uniqueDates = [];
         const seen = new Set();
         snapshot.docs.forEach(doc => {
@@ -37,7 +35,6 @@ export default function ImportantDates({ navigation }) {
             }
         });
 
-        // Ordenar por fecha: más próxima arriba, pasadas abajo
         uniqueDates.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         setDates(uniqueDates);
@@ -56,7 +53,7 @@ export default function ImportantDates({ navigation }) {
         await addDoc(collection(db, "importantDates"), {
             userId: auth.currentUser.uid,
             title,
-            date: date.toISOString().split("T")[0], // solo fecha YYYY-MM-DD
+            date: date.toISOString().split("T")[0],
             createdAt: new Date()
         });
 
